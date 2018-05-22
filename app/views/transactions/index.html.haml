@@ -1,0 +1,23 @@
+.row
+  .col-sm-6
+    %h1 Transactions
+  .col-sm-6.text-right
+    = link_to new_transaction_path, class: 'btn btn-primary' do
+      Add New Transaction
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th User
+        %th Description
+        %th Type
+        %th Price cents
+        %th
+    %tbody
+      - @transactions.each do |transaction|
+        = content_tag :tr, id: dom_id(transaction), class: dom_class(transaction) do
+          %td= transaction.user
+          %td= transaction.description
+          %td= transaction.type
+          %td= transaction.price_cents
+          %td= link_to 'Show', transaction

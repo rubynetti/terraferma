@@ -1,0 +1,22 @@
+= simple_form_with(model: transaction, local: true) do |form|
+  .form-group
+    = form.label :user_id
+    = form.text_field :user_id, class: 'form-control'
+  .form-group
+    = form.label :description
+    = form.text_area :description, class: 'form-control'
+  .form-group
+    = form.label :type
+    = form.text_area :type, class: 'form-control'
+  .form-group
+    = form.label :price_cents
+    = form.number_field :price_cents, class: 'form-control'
+  .form-group
+    - if transaction.persisted?
+      .float-right
+        = link_to 'Destroy', transaction, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' }
+    = form.submit class: 'btn btn-primary'
+    - if transaction.persisted?
+      = link_to "Cancel", transaction, class: "btn btn-link"
+    - else
+      = link_to "Cancel", transactions_path, class: "btn btn-link"

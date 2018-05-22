@@ -1,0 +1,17 @@
+.page-header
+  = link_to transactions_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    All Transactions
+  = link_to edit_transaction_path(@transaction), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show transaction
+%dl.dl-horizontal
+  %dt User:
+  %dd= @transaction.user
+  %dt Description:
+  %dd= @transaction.description
+  %dt Type:
+  %dd= @transaction.type
+  %dt Price cents:
+  %dd= @transaction.price_cents

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_22_165329) do
+ActiveRecord::Schema.define(version: 2018_05_22_174127) do
 
   create_table "announcements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "published_at"
@@ -58,6 +58,16 @@ ActiveRecord::Schema.define(version: 2018_05_22_165329) do
     t.index ["user_id"], name: "index_services_on_user_id"
   end
 
+  create_table "transactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "description"
+    t.text "type"
+    t.integer "price_cents"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_transactions_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -79,4 +89,5 @@ ActiveRecord::Schema.define(version: 2018_05_22_165329) do
   end
 
   add_foreign_key "services", "users"
+  add_foreign_key "transactions", "users"
 end

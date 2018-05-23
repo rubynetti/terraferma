@@ -1,7 +1,6 @@
 = simple_form_for(transaction) do |form|
-  = form.input :user
   = form.input :description
-  = form.input :type
+  = form.input :type, as: :string
   = form.input :price_cents
   .form-group
     - if transaction.persisted?

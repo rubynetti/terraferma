@@ -16,7 +16,7 @@
     %tbody
       - @transactions.each do |transaction|
         = content_tag :tr, id: dom_id(transaction), class: dom_class(transaction) do
-          %td= transaction.user
+          %td= transaction.user.name
           %td= transaction.description
           %td= transaction.type
           %td= transaction.price_cents

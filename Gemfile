@@ -20,6 +20,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.3', require: false
   gem 'capistrano-rvm'
   gem 'capistrano-bundler', '~> 1.3'
+  gem 'capistrano3-puma', github: "seuros/capistrano-puma"
 end
 
 group :test do

@@ -14,5 +14,5 @@ test:
 production:
   <<: *default
   database: terraferma
-  username: Rails.application.credentials.db_name
-  password: Rails.application.credentials.db_password
+  username: <%= Rails.application.credentials.db_name %>
+  password: <%= Rails.application.credentials.db_password %>

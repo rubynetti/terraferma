@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: myapp_production
-  username: myapp
-  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+  database: terraferma
+  username: Rails.application.credentials.db_name
+  password: Rails.application.credentials.db_password
